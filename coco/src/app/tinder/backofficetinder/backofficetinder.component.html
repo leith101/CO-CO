@@ -1,0 +1,202 @@
+
+  <!-- =============== Navigation ================ -->
+  <div class="container">
+    <div class="navigation">
+      <ul>
+        <li>
+          <a href="#">
+            <span class="icon">
+              <i class="bi bi-luggage-fill fs-3"></i>
+            </span>
+            <span class="title">Co&Co</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+                <i class="bi bi-border-all"></i>
+            </span>
+            <span class="title">Dashboard</span>
+          </a>
+        </li>
+  
+        <li>
+          <a routerLink="/back2"> <!-- Mettez à jour l'attribut routerLink -->
+            <span class="icon">
+                <i class="bi bi-bag"></i>
+            </span>
+            <span class="title">Reservations</span>
+          </a>
+        </li>
+  
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+              <i class="bi bi-chat"></i>
+            </span>
+            <span class="title">Messages</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+                <i class="bi bi-question-lg"></i>
+            </span>
+            <span class="title">Help</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+                <i class="bi bi-gear"></i>
+            </span>
+            <span class="title">Settings</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+                <i class="bi bi-lock"></i>
+            </span>
+            <span class="title">Password</span>
+          </a>
+        </li>
+  
+        <li>
+          <a href="#">
+            <span class="icon">
+                <i class="bi bi-box-arrow-left"></i>
+            </span>
+            <span class="title">Sign Out</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  
+   <!-- ========================= Main ==================== -->
+   <div  class="main">
+       <div class="topbar">
+           <div class="toggle" >
+             <i class="fa fa-bars" aria-hidden="true"></i>
+           </div>
+  
+           <div class="search">
+            <label>
+                <input type="text" class="form-control" id="searchInput" placeholder="Search&hellip;" (keyup)="filterTable()">
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </label>
+        </div>
+  
+           <div class="user">
+               <img src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png" alt="">
+           </div>
+       </div>
+  
+       <!-- ======================= Cards ================== -->
+       <div class="cardBox">
+        <div class="card">
+            <div>
+                <div class="numbers"> {{ totalLikes }}</div>
+                <div class="cardName">Likes Numbre</div>
+            </div>
+  
+            <div class="iconBx">
+                <i class="bi bi-suit-heart-fill"></i>
+            </div>
+        </div>
+  
+        <div class="card">
+            <div>
+                <div class="numbers">{{ totalMatches }}</div>
+                <div class="cardName">Match</div>
+            </div>
+  
+            <div class="iconBx">
+                <i class="bi bi-bookmark-plus-fill"></i>
+            </div>
+        </div>
+  
+        <div class="card">
+            <div>
+                <div class="numbers">{{ percentageOfUsersWhoLikedOrDisliked}}</div>
+                <div class="cardName">Like per user</div>
+            </div>
+  
+            <div class="iconBx">
+                <i class="bi bi-person-fill-add"></i>
+
+            </div>
+        </div>
+  
+        <div class="card">
+            <div>
+                <div class="numbers"> 55</div>
+                <div class="cardName">Earning</div>
+            </div>
+  
+            <div class="iconBx">
+              <i class="fa fa-money" aria-hidden="true"></i>
+            </div>
+        </div>
+    </div>
+    
+    <div style="width: 40%; margin: auto;">
+      <canvas id="genderDonutChart"></canvas>
+  </div>
+         
+ 
+  
+  
+  
+         
+        <ng-template #noAnnonces>
+          <p>Aucune annonce trouvée.</p>
+        </ng-template>
+        
+  
+  
+  
+        <div class="details full-width"> <!-- Ajout de la classe full-width -->
+            <div class="recentOrders">
+              <div class="cardHeader">
+                <h2>Match List</h2>
+              </div>
+          
+            <!-- backoffice.component.html -->
+      <!-- Barre de recherche -->
+      <div *ngIf="matchsWithUserInfo && matchsWithUserInfo.length > 0;">
+        <div class="table-responsive"> <!-- Ajout d'un div autour de la table -->
+          <table class="table"> <!-- Ajout de la classe "table" -->
+            <thead>
+              <tr>
+                <th scope="col">User 1</th>
+                <th scope="col">User 1 Gender</th>
+                <th scope="col">User 2</th>
+                <th scope="col">User 2 Gender</th>
+                
+                <th scope="col">Actions</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let match of matchsWithUserInfo">
+                <td>{{ match.User1Name }}</td>
+                <td>{{ match.User1Gender }}</td>
+                <td>{{ match.User2Name }}</td>
+                <td>{{ match.User2Gender }}</td>
+                <td>
+                    <button class="btn btn-danger" (click)="deleteMatch(match.MatchId)">Supprimer</button>
+                  </td>
+              </tr>
+            </tbody>
+      </table>
+      </div>
+      <ng-template #noContracts>
+      <p>Aucun contrat trouvé.</p>
+      </ng-template>
+      

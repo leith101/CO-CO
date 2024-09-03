@@ -1,0 +1,21 @@
+<p>test works!</p>
+<div>
+    <h2>Test de traduction</h2>
+    
+    <label for="sourceLang">Langue source :</label>
+    <input type="text" id="sourceLang" [(ngModel)]="sourceLang" placeholder="Langue source (ex: en)">
+    
+    <label for="targetLang">Langue cible :</label>
+    <input type="text" id="targetLang" [(ngModel)]="targetLang" placeholder="Langue cible (ex: fr)">
+    
+    <label for="textToTranslate">Texte à traduire :</label>
+    <textarea id="textToTranslate" [(ngModel)]="textToTranslate" placeholder="Texte à traduire"></textarea>
+    
+    <button (click)="translate()">Traduire</button>
+    
+    <div *ngIf="translatedText">
+      <h3>Résultat de la traduction :</h3>
+      <p>{{ translatedText }}</p>
+    </div>
+  </div>
+  

@@ -1,0 +1,156 @@
+
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a >Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a  > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a  routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>
+
+
+
+
+
+<!-- Detailed Announcement Section -->
+<div class="container">
+    <section *ngIf="annonce">
+        <h2>{{ annonce?.titre }}</h2>
+        <div class="announcement-details">
+            <div class="announcement-image">
+                <img [src]="annonce?.image" alt="Announcement Image">
+            </div>
+            <div class="announcement-info">
+                <p><strong>Description:</strong> {{ annonce?.description }}</p>
+                <p><strong>Price:</strong> {{ annonce?.prix }}</p>
+                <p><strong>Departure Date:</strong> {{ annonce?.dateDepart | date:'dd/MM/yyyy HH:mm' }}</p>
+
+                <p><strong>Available Seats:</strong> {{ annonce?.placesDisponibles }}</p>
+                <p><strong>Contact:</strong> {{ annonce?.contact }}</p>
+                <p><strong>Status:</strong> {{ annonce?.status }}</p>
+                <p><strong>Departure Point:</strong> {{ annonce?.pointDepart }}</p>
+                <p><strong>Arrival Point:</strong> {{ annonce?.pointArrivee }}</p>
+                <p><strong>Stop Point:</strong> {{ annonce?.pointStop }}</p>
+                <p><strong>Distance:</strong> {{ annonce?.distance }}</p>
+
+            </div>
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+            <div class="reserve-button" *ngIf="annonce.status === 'ACTIVE'">
+                <button class="btn btn-success" (click)="reserve()">Reserve</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Comment Section -->
+    <section class="add-comment-section">
+        <h3>Add a Comment</h3>
+        <form (ngSubmit)="submitComment()">
+          <div class="form-group">
+            <label for="commentText">Your Comment:</label>
+            <textarea
+              id="commentText"
+              [(ngModel)]="commentText"
+              name="commentText"
+              placeholder="Enter your comment here..."
+              required
+            ></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </section>
+      
+
+    <!-- Comments Section -->
+    <section *ngIf="comments && comments.length">
+        <h3>Comments</h3>
+        <div class="comments-container">
+          <div *ngFor="let comment of comments" class="comment-card">
+            <div class="comment-header">
+              <img
+                src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png"
+                alt="{{ comment.user.nom }}"
+                class="avatar"
+              />
+              <div class="comment-meta">
+                <span class="comment-user">{{ comment.user.nom }}</span>
+                <span class="comment-date">{{ comment.date | date: 'dd/MM/yyyy HH:mm' }}</span>
+              </div>
+            </div>
+            <div class="comment-body">
+              <p>{{ comment.comments }}</p>
+            </div>
+            <div class="comment-actions">
+              <button
+                class="btn-like"
+                (click)="likeComments(comment.idco)"
+                title="Like this comment"
+              >
+                👍
+              </button>
+              <span>{{ comment.likes }}</span>
+              <button
+                class="btn-dislike"
+                (click)="dislikeComments(comment.idco)"
+                title="Dislike this comment"
+              >
+                👎
+              </button>
+              <span>{{ comment.dislikes }}</span>
+              <a
+                *ngIf="isCommentOwner(comment.user.id)"
+                href="javascript:void(0)"
+                (click)="deleteComment(comment.user.id, comment.idco)"
+                class="btn-delete"
+              >
+                Delete
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>

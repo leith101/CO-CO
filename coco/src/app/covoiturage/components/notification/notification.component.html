@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Notifications</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Icons -->
+</head>
+<body>
+<style>/* Notifications Section */
+    .notification-container {
+        padding: 20px;
+        background-color: #f8f8f8;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        margin: 20px;
+      }
+      
+      .notification-container h2 {
+        font-size: 1.5em;
+        color: #333;
+        margin-bottom: 15px;
+      }
+      
+      .notification-list {
+        list-style-type: none;
+        padding: 0;
+      }
+      
+      .notification-item {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      
+      .notification-item:last-child {
+        border-bottom: none;
+      }
+      
+      .notification-content {
+        font-size: 1em;
+        color: #555;
+      }
+      
+      .read-label {
+        background-color: #28a745; /* Green for read notifications */
+        color: #fff;
+        padding: 5px 10px;
+        border-radius: 5px;
+        margin-left: 10px;
+      }
+      
+      .btn-mark-read {
+        background-color: #007bff; /* Blue for mark as read button */
+        color: #fff;
+        border: none;
+        padding: 8px 12px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      .btn-mark-read:hover {
+        background-color: #0056b3; /* Darker blue on hover */
+      }
+      
+      .no-notifications {
+        font-size: 1em;
+        color: #999;
+        text-align: center;
+        margin-top: 10px;
+      }</style>
+<!-- Header with Navigation -->
+<header>
+  <div class="banner">Get over 50% discount on selected services!</div>
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fas fa-suitcase-rolling"></i> 
+      Co&Co
+    </div>
+    <ul class="navigation-menu">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Services</a>
+        <ul class="dropdown-menu">
+          <li class="dropdown-item">
+            <div class="card">
+              <img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="Colocation" />
+              <a href="#">
+                <span>Colocation</span>
+                <span>More Info <i class="fas fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </li>
+          <li class="dropdown-item">
+            <div class="card">
+              <img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="Covoiturage" />
+              <a href="#">
+                <span>Covoiturage</span>
+                <span>More Info <i class="fas fa-arrow-right"></i></span>
+              </a>
+            </div>
+          </li>
+        </ul>
+      </li>
+      <li><a href="#locations">Locations & Hours</a></li>
+      <li><a href="#">About Us</a></li>
+    </ul>
+    <div class="utility-icons">
+      <a href="#"><i class="fas fa-shopping-cart"></i></a>
+      <a href="#"><i class="fas fa-user"></i></a>
+    </div>
+  </nav>
+</header>
+
+<!-- Notifications Section -->
+<section class="notification-container">
+  <h2>Notifications</h2>
+  <div class="notification-list">
+    <!-- If there are notifications -->
+    <ul>
+      <li *ngFor="let notification of notifications" class="notification-item">
+        <div class="notification-content">
+          <p>{{ notification.content }}</p>
+          <span *ngIf="notification.read" class="read-label">Read</span>
+        </div>
+        <!-- Button to mark as read -->
+        <button class="btn-mark-read" *ngIf="!notification.read" (click)="markAsRead(notification.id)">
+          Mark as Read
+        </button>
+      </li>
+    </ul>
+
+    <!-- If there are no notifications -->
+    <p class="no-notifications" *ngIf="notifications.length === 0">No notifications to display.</p>
+  </div>
+</section>
+
+</body>
+</html>

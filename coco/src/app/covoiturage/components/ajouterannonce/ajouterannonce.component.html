@@ -1,0 +1,124 @@
+
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a >Home</a>
+                <ul class="subnav">
+  
+                </ul>
+  
+  
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+  
+        </ul>
+        <div id="utility">
+  
+                <li class="card-med" id="serv-board"><a  > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a  routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+  
+  
+        
+    </nav>
+  </header>
+
+ <!-- ajouter-annonce.component.html -->
+ <div class="container mt-5">
+  <h2>Add Annonce</h2>
+  <form [formGroup]="annonceForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="titre">Titre:</label>
+      <input type="text" class="form-control" id="titre" formControlName="titre" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="prix">Prix:</label>
+      <input type="number" class="form-control" id="prix" formControlName="prix" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="dateDepart">Date Depart:</label>
+      <input type="datetime-local" class="form-control" id="dateDepart" formControlName="dateDepart" autocomplete="off">
+    </div>
+    
+    
+    <div class="form-group">
+      <label for="image">Image:</label>
+      <input type="text" class="form-control" id="image" formControlName="image" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="description">Description:</label>
+      <textarea class="form-control" id="description" formControlName="description" autocomplete="off"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="pointStop">Point Stop:</label>
+      <input type="text" class="form-control" id="pointStop" formControlName="pointStop" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="pointArrivee">Point Arrivee:</label>
+      <input type="text" class="form-control" id="pointArrivee" formControlName="pointArrivee" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="placesDisponibles">Places Disponibles:</label>
+      <input type="number" class="form-control" id="placesDisponibles" formControlName="placesDisponibles" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact:</label>
+      <input type="number" class="form-control" id="contact" formControlName="contact" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <select class="form-control" id="status" formControlName="status" autocomplete="off">
+        <option value="ACTIVE">ACTIVE</option>
+        <option value="INACTIVE">INACTIVE</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="pointDepart">Point Depart:</label>
+      <input type="text" class="form-control" id="pointDepart" formControlName="pointDepart" autocomplete="off">
+    </div>
+    <div class="form-group">
+      <label for="distance">Distance:</label>
+      <input type="number" class="form-control" id="distance" formControlName="distance" autocomplete="off">
+      <div class="form-group">
+        <label for="matricule">Choose a Voiture</label>
+        <select class="form-control" id="matricule" formControlName="matricule" (change)="onChangeVoiture($event)">
+          <option *ngFor="let voiture of voitures" [value]="voiture">{{ voiture }}</option>
+        </select>
+      </div>
+    </div>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
+</div>

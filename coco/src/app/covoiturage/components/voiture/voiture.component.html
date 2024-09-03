@@ -1,0 +1,77 @@
+
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a >Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a  > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a  routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>
+
+
+
+
+    <h2 class="d-flex justify-content-center m-5"> <i class="bi bi-car-front"></i>  Voiture </h2>
+
+    <section class="cards-wrapper">
+        <div class="card-grid-space" *ngFor="let voiture of voitures">
+            <div class="card" [style.backgroundImage]="'url(' + voiture.img + ')'">
+                <div>
+                        <h1>{{voiture.nombrePlaces}}</h1>
+                        <p>{{voiture.matricule}}</p>
+                        <button type="button" class="button-link" (click)="deleteVoiture(voiture.userId, voiture.idv)">Delete</button>
+                        <button type="button" (click)="navigateToUpdatePage(voiture.idv)">Update</button>
+
+                    </div>
+                </div>
+            </div>
+        <div *ngIf="voitures && voitures.length === 0">
+            <p>No voitures found for the current user.</p>
+        </div>
+    </section>

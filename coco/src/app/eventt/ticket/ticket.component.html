@@ -1,0 +1,65 @@
+<!-- ticket.component.html -->
+
+<div *ngIf="events.length > 0 else loading" class="card-container">
+    <div *ngFor="let event of events" class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <p class="title">Event at {{ event.time }}</p>
+          <p>{{ event.place }}</p>
+        </div>
+        <div class="flip-card-back">
+          <p class="title">Description</p>
+          <p>{{ event.description }}</p>
+          <button (click)="openQrDialog(myAngularxQrCode)">
+            Participate
+          </button>  
+          <div class="card shadow">
+          </div>  
+        </div>
+        
+      </div>
+    </div>
+  </div>
+
+
+  <div class ="serch by time">
+
+    <div class="custom_input">
+      <svg
+        viewBox="0 0 16 16"
+        class="svg_icon bi-search"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        ></path>
+      </svg>
+      <input [(ngModel)]="searchTime" placeholder="Select date and time" type="datetime-local" class="input" />
+      <button (click)="searchbytime()">Search</button>
+    </div>
+    
+  </div>
+  
+  
+  
+  <div class ="serch by place">
+  
+    <div class="custom_input">
+      <svg
+        viewBox="0 0 16 16"
+        class="svg_icon bi-search"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+        ></path>
+      </svg>
+      <input [(ngModel)]="searchPlace" placeholder="Write your place" type="text" class="input" />
+      <button (click)="searchByPlace()">Search</button>
+    </div>
+    
+  </div>
+  
+  <ng-template #loading>
+    <p>Loading events...</p>
+  </ng-template>

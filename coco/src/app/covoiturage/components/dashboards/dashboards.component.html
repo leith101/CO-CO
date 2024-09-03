@@ -1,0 +1,307 @@
+<head>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+  </head>
+<!-- =============== Navigation ================ -->
+<div class="container">
+   <div  class="navigation">
+       <ul>
+           <li>
+               <a href="#">
+                   <span class="icon">
+                       <i class="bi bi-luggage-fill fs-3"></i> 
+                   </span>
+                   <span class="title">Co&Co</span>
+               </a>
+           </li>
+ 
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-home" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Dashboard</span>
+               </a>
+           </li>
+ 
+           <li>
+            <a [routerLink]="['/bannonce']">
+                <span class="icon">
+                    <i class="fa fa-users" aria-hidden="true"></i>
+                </span>
+                <span class="title">annonces</span>
+            </a>
+            <li>
+
+              <li>
+              <a [routerLink]="['/reserv']">
+                <span class="icon">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+              </span>
+              <span class="title">reservations</span>
+          </a>
+          <li>
+
+            <a [routerLink]="['/stats']">
+              <span class="icon">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+              </span>
+              <span class="title">statistics</span>
+          </a>
+           </li>
+
+           <li>
+
+            <a [routerLink]="['/stat']">
+              <span class="icon">
+                  <i class="fa fa-users" aria-hidden="true"></i>
+              </span>
+              <span class="title">stat</span>
+          </a>
+           </li>
+           <li>
+           <a [routerLink]="['/bvoiture']">
+            <span class="icon">
+                <i class="fa fa-users" aria-hidden="true"></i>
+            </span>
+            <span class="title">Voitures</span>
+        </a>
+        </li>
+        <li>
+
+          <a [routerLink]="['/bcomment']">
+            <span class="icon">
+                <i class="fa fa-users" aria-hidden="true"></i>
+            </span>
+            <span class="title">Commentaires</span>
+        </a>
+         </li>
+
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-comment-o" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Messages</span>
+               </a>
+           </li>
+ 
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-question" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Help</span>
+               </a>
+           </li>
+ 
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-cog" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Settings</span>
+               </a>
+           </li>
+ 
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-lock" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Password</span>
+               </a>
+           </li>
+ 
+           <li>
+               <a href="#">
+                   <span class="icon">
+                     <i class="fa fa-sign-out" aria-hidden="true"></i>
+                   </span>
+                   <span class="title">Sign Out</span>
+               </a>
+           </li>
+       </ul>
+   </div>
+ 
+   <!-- ========================= Main ==================== -->
+   <div  class="main">
+       <div class="topbar">
+           <div class="toggle" >
+             <i class="fa fa-bars" aria-hidden="true"></i>
+           </div>
+ 
+           <div class="search">
+               <label>
+                   <input type="text" class="form-control" id="searchInput" placeholder="Search&hellip;" >
+                   <i class="fa fa-search" aria-hidden="true"></i>
+               </label>
+           </div>
+ 
+           <div class="user">
+               <img src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png" alt="">
+           </div>
+       </div>
+ 
+       <!-- ======================= Cards ================== -->
+       <div class="cardBox">
+           <div class="card">
+               <div>
+                   <div class="numbers">1,504</div>
+                   <div class="cardName">Daily Views</div>
+               </div>
+ 
+               <div class="iconBx">
+                 <i class="fa fa-eye" aria-hidden="true"></i>
+               </div>
+           </div>
+ 
+           <div class="card">
+               <div>
+                   <div class="numbers">80</div>
+                   <div class="cardName">Sales</div>
+               </div>
+ 
+               <div class="iconBx">
+                 <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+               </div>
+           </div>
+ 
+           <div class="card">
+               <div>
+                   <div class="numbers">284</div>
+                   <div class="cardName">Comments</div>
+               </div>
+ 
+               <div class="iconBx">
+                 <i class="fa fa-comments-o" aria-hidden="true"></i>
+               </div>
+           </div>
+ 
+           <div class="card">
+               <div>
+                   <div class="numbers">7,842 DT</div>
+                   <div class="cardName">Earning</div>
+               </div>
+ 
+               <div class="iconBx">
+                 <i class="fa fa-money" aria-hidden="true"></i>
+               </div>
+           </div>
+       </div>
+
+       <div class="container"  >
+           <!-- DONUT CHART BLOCK (LEFT-CONTAINER) --> 
+           <div class="container" class="row justify-content-center" >
+             <!-- DONUT CHART BLOCK (LEFT-CONTAINER) --> 
+             <div class="donut-chart-block block">
+               <h2 class="titular">Total Users</h2>
+               <div class="donut-chart">
+                 <!-- Utilisez l'interpolation pour calculer dynamiquement les angles de rotation -->
+                 <div id="porcion1" class="recorte" >
+                   <div class="quesito ios"></div>
+                 </div>
+                 <div id="porcion2" class="recorte" >
+                   <div class="quesito mac"></div>
+                 </div>
+                 <p class="center-date">Users</p>
+               </div>
+               <ul class="os-percentages horizontal-list">
+                 <li>
+                   <p class="ios os scnd-font-color">Banned</p>
+                   <p class="os-percentage"></p>
+                 </li>
+                 <li>
+                   <p class="mac os scnd-font-color">Users</p>
+                   <p class="os-percentage"></p>
+                 </li>
+               </ul>
+             </div>
+             
+             
+             <!-- BAR CHART BLOCK (RIGHT-CONTAINER) -->
+             <div class="bar-chart-block block">
+               <h2 class="titular">Stats</h2>
+               <div class="grafico bar-chart">
+                 <ul class="eje-y">
+                   <li data-ejeY="60"></li>
+                   <li data-ejeY="45"></li>
+                   <li data-ejeY="30"></li>
+                   <li data-ejeY="15"></li>
+                   <li data-ejeY="0"></li>
+                 </ul>
+                 <ul class="eje-x">
+                   <li data-ejeX="37"><i>Banned</i></li>
+                   <li data-ejeX="56"><i>Users</i></li>
+                 </ul>
+                 <!-- Dynamically set the height of the bar representing banned users -->
+                 <div class="bar" ></div>
+               </div>
+             </div>
+           </div>
+           
+         </div>
+         
+ 
+       <!-- ================ Order Details List ================= -->
+       <div class="details">
+           <div class="recentOrders">
+               <div class="cardHeader">
+                   <h2>List of Users</h2>
+            <button class="btn" ><i class="bi bi-file-earmark-excel"></i>Exporter vers Excel</button>
+
+
+            <button class="btn"><i class="bi bi-filter" >Filtre</i></button>
+
+               </div>
+ 
+               <table>
+                   <thead>
+                       <tr>
+                           <td>email</td>
+                           <td>name</td>
+                           <td>Banned</td>
+                           <td>Role</td>
+                           <td>Actions</td>
+                           
+                       </tr>
+                   </thead>
+ 
+                   <tbody>
+                     
+ 
+                       <tr  >
+                           <td></td>
+                           <td></td>
+                           <td> 
+                               </td>
+                             
+                       </tr>
+                       
+                   </tbody>
+               </table>
+           </div>
+ 
+           <!-- ================= New Customers ================ -->
+           <div class="recentCustomers">
+               <div class="cardHeader">
+                   <h2>Recent Users</h2>
+               </div>
+ 
+               <table>
+                   <tr  >
+                       <td width="60px">
+                           <div class="imgBx"><img src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png" alt=""></div>
+                       </td>
+                       <td>
+                           <h4> <br> <span>Welcome!</span></h4>
+                       </td>
+                   </tr>
+ 
+                 
+ 
+               </table>
+           </div>
+       </div>
+   </div>
+ </div>

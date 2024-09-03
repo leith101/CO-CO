@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Feedback Form with map</title>
+
+  <script src="https://unpkg.com/@angular/core@latest/fesm2015/core.min.js"></script>
+  <script src="https://unpkg.com/@angular/forms@latest/fesm2015/forms.min.js"></script>
+  <script src="https://unpkg.com/@angular/material@latest/fesm2015/material.umd.min.js"></script>
+</head>
+<header>
+  <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+  
+  <nav>
+        
+      <div id="logo">
+          <i class="bi bi-luggage-fill"></i>
+          Co&Co
+      </div>
+      <ul class="navigation-menu">
+          <li><a [routerLink]="['/home']">Home</a>
+              <ul class="subnav">
+
+              </ul>
+
+
+          <li><a href="#">Services</a>
+              <ul class="subnav">
+                  <li class="card-med" id="serv-groom">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                      <a href="#">
+                          <span>colocation</span>
+                          <span>More Info <i class="bi bi-arrow-right"></i></span>
+                      </a>
+                  </li>
+                  <li class="card-med" id="serv-board">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                      <a href="#">
+                          <span>covoiturage</span>
+                          <span>More Info<i class="bi bi-arrow-right"></i></span>
+                      </a>
+              </ul>
+          </li>
+          <li><a [routerLink]="['/schedule']" >schedule</a>
+          </li>
+          <li><a [routerLink]="['/certification']" >certification</a>
+          </li>
+          <li>
+              <a href="#">About Us</a>
+          </li>
+          
+
+      </ul>
+      <div id="utility">
+
+              <li class="card-med" id="serv-board"><a [routerLink]="['/panier']" > <i class="bi bi-cart"></i></a></li> 
+              <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+              
+              
+           
+      </div>
+
+
+      
+  </nav>
+</header>
+<body ng-app="myApp">
+  
+  <div class="ffbox">
+    <div class="ffbox1">
+      <h1>Add your own event</h1>
+      <h2>Event section</h2>
+      <form>
+        <label for="area">Area:</label>
+        <input type="text" id="area" name="area" [(ngModel)]="area" required>
+
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" [(ngModel)]="price" required>
+
+        <label for="availability">Availability:</label>
+        <input type="text" id="availability" name="availability" [(ngModel)]="availability" required>
+
+        <label for="date">Pick your date:</label>
+        <mat-card class="demo-inline-calendar-card" style="width: 70%;">
+          <mat-calendar [(selected)]="selected"></mat-calendar>
+        </mat-card>
+        <p>Selected date: {{selected}}</p>
+
+        <button type="button" (click)="losave()">Submittt</button>
+
+      </form>
+    </div>
+    <div class="map-div">
+      <google-map #map latitude="37.2744" longitude="9.8732" (mapClick)="handleClick($event)"></google-map>
+    </div>
+    
+  </div>
+
+</body>
+
+</html>

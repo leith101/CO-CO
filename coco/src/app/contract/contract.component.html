@@ -1,0 +1,168 @@
+
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a [routerLink]="['/home']">Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a [routerLink]="['/panier']" > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>
+
+<div class="container mt-4">
+    <div class="text-center"> <!-- Wrapper div with text-center class -->
+        <div class="card p-4 shadow-lg rounded-3 text-center" style="width: 500px; margin: 0 auto;">
+            <h5 class="card-title mb-4">Formulaire de contrat</h5>
+            <form #contractForm="ngForm" (ngSubmit)="onSubmit()" style="width: 100%; text-align: center;">
+                <div class="form-group mb-3">
+                    <label for="date_contract">Date du contrat:</label>
+                    <input type="date" id="date_contract" [(ngModel)]="Contract.date_contract" name="date_contract" class="form-control" required>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label for="DureeC">Durée du contrat (en mois) :</label>
+                    <input type="number" id="DureeC" [(ngModel)]="Contract.DureeC" name="DureeC" class="form-control" required>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label for="choixC">Choix du contrat:</label>
+                    <select id="choixC" [(ngModel)]="Contract.choixC" name="choixC" class="form-control" required>
+                        <option value="" disabled selected>Choisissez une option</option>
+                        <option value="ContratDeLocation">Contrat De Location</option>
+                        <option value="ContratDeColocation">Contrat De Colocation</option>
+                        <option value="ContratDeSousLocation">Contrat De Sous Location</option>
+                    </select>
+                </div>
+    
+                <div class="form-group mb-3">
+                    <label for="signature">Signature:</label>
+                    <input type="checkbox" id="signature" [(ngModel)]="Contract.signature" name="signature" class="form-check-input" required>
+                </div>
+    
+                <div class="text-center mb-3" style="width: 100%; margin-left:40%">
+                    <button type="submit" class="btn btn-primary">Soumettre</button>
+                    <button *ngIf="showGeneratePDFButton" (click)="generatePDF()" class="btn btn-secondary">Générer PDF</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+  
+  
+  
+  
+  
+  
+  
+  
+
+
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3><span>Co&Co</span></h3>
+
+        <p class="footer-links">
+            <a href="#" class="link-1">Home</a>
+            
+            <a href="#">Blog</a>
+        
+            <a href="#">Pricing</a>
+        
+            <a href="#">About</a>
+            
+            <a href="#">Faq</a>
+            
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name © 2024</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Tunis</span> Ariana soghra</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+216 96816101</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href=""></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>

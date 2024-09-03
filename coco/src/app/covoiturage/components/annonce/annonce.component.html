@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Co&Co - Covoiturage</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .search-bar {
+            display: flex;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.112);
+            border: 1px solid #dddddd77;
+            padding: 5px;
+        }
+
+        .search-input {
+            border: none;
+            outline: none;
+            width: 100%;
+        }
+
+        .cards-wrapper {
+  display: flex;
+  flex-wrap: wrap; 
+  justify-content: space-around;
+}
+
+.card-grid-space {
+  flex: 1; 
+  min-width: 200px;
+}
+
+
+        .card {
+            background-size: cover;
+            background-position: center;
+            padding: 20px;
+            border-radius: 10px;
+            color: white;
+        }
+
+        .btn-outline {
+            border: 2px solid white;
+            background: transparent;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn-outline:hover {
+            background: rgb(255, 255, 255);
+            color: black;
+        }
+
+        .pagination-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .pagination-button {
+            padding: 10px;
+            margin: 5px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .pagination-button[disabled] {
+            background: #ddd;
+            cursor: not-allowed;
+        }
+        
+        .tag {
+            font-size: 1em;
+            padding: 5px;
+        }
+
+        .tag-active {
+            color: rgba(34, 139, 34, 0.913); 
+        }
+
+        .tag-inactive {
+            color: rgba(229, 19, 19, 0.913);
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div id="logo" class="navbar-brand">
+            <i class="bi bi-luggage-fill"></i> Co&Co
+        </div>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link">Home</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+            <li class="nav-item"><a class="nav-link" href="#locate">Locations & Hours</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">About Us</a></li>
+            <li class="nav-item">
+                <div class="search-bar">
+                    <input type="text" class="search-input" placeholder="Search!" (input)="onSearch($event)" />
+                </div>
+            </li>
+        </ul>
+        <div class="ml-auto d-flex align-items-center">
+            <a class="nav-link" aria-label="Cart"><i class="bi bi-cart"></i></a>
+            <a class="nav-link" aria-label="Profile"><i class="bi bi-person-fill"></i></a>
+        </div>
+    </nav>
+</header>
+
+<h2 class="text-center my-5">
+    <i class="bi bi-car-front"></i> Covoiturage
+</h2>
+
+<section class="cards-wrapper">
+    <div class="card-grid-space" *ngFor="let annonce of paginatedAnnonces">
+        <div class="card" [style.backgroundImage]="'url(' + annonce.image + ')'">
+            <div>
+                <h1>{{ annonce.titre }}</h1>
+
+                <p>Départ: {{ annonce.pointDepart }}</p>
+                <p>Arrivée: {{ annonce.pointArrivee }}</p>
+                <div class="tags">
+                    <div class="tag"
+                        [ngClass]="annonce.status === 'ACTIVE' ? 'tag-active' : 'tag-inactive'">
+                        {{ annonce.dateDepart | date: 'dd/MM/yyyy HH:mm' }}
+                    </div>
+                    <div class="tag">Places Disponibles: {{ annonce.placesDisponibles }}</div>
+                </div>
+                <div class="status"
+                    [ngClass]="{
+                      'active': annonce.status === 'ACTIVE',
+                      'inactive': annonce.status === 'INACTIVE'
+                    }">
+                    <div class="circle"></div>
+                    <div class="status-text">{{ annonce.status }}</div>
+                </div>
+                <button class="btn-outline" (click)="viewAnnouncementDetails(annonce.ida)">
+                    Voir <i class="bi bi-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="pagination-controls">
+    <button (click)="changePage(currentPage - 1)" class="pagination-button" [disabled]="currentPage <= 1">Previous</button>
+    <span class="pagination-info">Page {{ currentPage }} of {{ totalPages }}</span>
+    <button (click)="changePage(currentPage + 1)" class="pagination-button" [disabled]="currentPage >= totalPages">Next</button>
+</div>
+</body>
+</html>

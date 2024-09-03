@@ -1,0 +1,26 @@
+<div class="order-management-container">
+  <h2>Orders</h2>
+
+
+  <div class="order-list">
+    <div class="order-item" *ngFor="let order of orders">
+      <div class="order-details">
+        <h3>Order #{{ order.id }}</h3>
+        <p><b>Date: </b>{{ order.date | date: 'dd/MM/YYYY' }}</p>
+        <p><b>Client:</b> {{ order.fullName }}</p>
+        <p><b>Address:</b> {{ order.adress }}</p>
+        <p><b>Phone:</b> {{ order.phone }}</p>
+
+      <b>Products:</b>
+              <ul class="article-list">
+                <li *ngFor="let cartItem of order.items">
+                  {{ cartItem.product.nom }} (Quantity: {{ cartItem.quantity }}) - {{ cartItem.product.prix}} TND
+                </li>
+              </ul>
+        <p><b>Total: </b> {{ calculateTotalPrice(order) }} TND</p>
+        <button class="delete-button" (click)="deleteOrder(order.id)">Delete</button>
+
+      </div>
+    </div>
+  </div>
+</div>

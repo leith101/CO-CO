@@ -1,0 +1,27 @@
+<div *ngIf="loading">
+  Loading...
+</div>
+
+<div *ngIf="error">
+  {{ error }}
+</div>
+
+<div *ngIf="!loading && !error">
+  <h2>Statistics: Active vs. Inactive Annonces</h2>
+
+  <div class="large-chart-container">
+    <canvas id="statistics-chart"></canvas>
+  </div>
+  
+  
+  <div class="chart-and-legend"> 
+    <div class="legend"> 
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #4caf50;"></div>
+        Active Annonces
+      </div>
+      <div class="legend-item">
+        <div class="legend-color" style="background-color: #f44336;"></div>
+        Inactive Annonces
+      </div>
+    </div>

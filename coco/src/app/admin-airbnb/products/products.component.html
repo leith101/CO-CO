@@ -1,0 +1,29 @@
+<div class="container">
+    <h2>Add Product</h2>
+    <div class="add-article-form">
+      <input type="file" (change)="onFileSelected($event)" accept="image/*" />
+      <input type="number" placeholder="Prix" [(ngModel)]="newProduct.prix" />
+      <input type="text" placeholder="Description" [(ngModel)]="newProduct.description" />
+      <input type="text" placeholder="Nom" [(ngModel)]="newProduct.nom" />
+      
+      <button (click)="addProduct()">Add Product</button>
+    </div>
+  
+    <div class="existing-articles">
+      <h2>Existing Products</h2>
+      <div class="article-cards">
+        <div class="card" *ngFor="let product of products">
+          <div class="card-image">
+            <img [src]="getImageUrl(product.image)" />
+          </div>
+          <div class="card-content">
+            <h3 class="article-name">{{ product.nom }}</h3>
+            <p>Prix: {{ product.prix }}</p>
+            <p>Description: {{ product.description }}</p>
+            <button class="delete-button" (click)="deleteProduct(product.id)">Delete</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

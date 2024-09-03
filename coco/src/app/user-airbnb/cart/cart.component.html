@@ -1,0 +1,31 @@
+<app-header></app-header><div class="card">
+    <div class="cart-container">
+        <div class="cart-items">
+          <div class="cart-item" *ngFor="let item of cart">
+            <div class="item-details">
+              <img [src]="'assets/images/'+item.image">
+              <div class="item-info">
+                <h3>{{item.nom}}
+                </h3>
+                <p>{{item.description}}</p>
+                <p>Prix: {{item.prix}} TND</p>
+              </div>
+            </div>
+            <div class="quantity">
+              <button class="quantity-button minus"(click)="minus(item)">-</button>
+              <span class="quantity-count">{{item.quantity}}</span>
+              <button class="quantity-button plus" (click)="plus(item)">+</button>
+            </div>
+            <button class="remove-button" (click)="delete(item)">Supprimer</button>
+          </div>
+
+        </div>
+      
+      
+        <div class="cart-summary">
+          <p><b>Total Articles:</b> {{total}}</p>
+          <p><b>Total à payer:</b> {{prixTotal}} TND</p>
+        </div>
+      
+        <button class="proceed-button" (click)="goTOPayement()" >Submit</button>
+      </div>

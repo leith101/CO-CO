@@ -1,0 +1,206 @@
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a [routerLink]="['/home']">Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li><a [routerLink]="['/tinder']">Tinder</a>
+            </li>
+            <li><a [routerLink]="['/affichpost']">Forum</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a [routerLink]="['/panier']" > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+     
+
+        
+
+        
+    </nav>
+</header>
+
+
+<div class="row mt-4">
+    <div class="col-md-6">
+        <label for="languageSelect"></label>
+        <div class="radio-input">
+            <div class="glass">
+                <div class="glass-inner">
+                </div>
+            </div>
+            <div class="selector">
+                <div class="choice">
+                    <div>
+                        <input type="radio" id="en" name="language-selector" value="en" [(ngModel)]="selectedLanguage" (change)="switchLanguage()" class="choice-circle">
+                        <div class="ball"></div>
+                    </div>
+                    <label class="choice-name" for="en">Anglais</label>
+                </div>
+                <div class="choice">
+                    <div>
+                        <input type="radio" id="fr" name="language-selector" value="fr" [(ngModel)]="selectedLanguage" (change)="switchLanguage()" class="choice-circle">
+                        <div class="ball"></div>
+                    </div>
+                    <label class="choice-name" for="fr">Français</label>
+                </div>
+                <div class="choice">
+                    <div>
+                        <input type="radio" id="it" name="language-selector" value="it" [(ngModel)]="selectedLanguage" (change)="switchLanguage()" class="choice-circle">
+                        <div class="ball"></div>
+                    </div>
+                    <label class="choice-name" for="it">Italien</label>
+                </div>
+                <div class="choice">
+                    <div>
+                        <input type="radio" id="es" name="language-selector" value="es" [(ngModel)]="selectedLanguage" (change)="switchLanguage()" class="choice-circle">
+                        <div class="ball"></div>
+                    </div>
+                    <label class="choice-name" for="es">Espagnol</label>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="post mb-3 shadow">
+                <form [formGroup]="postForm" (ngSubmit)="submitPost()">
+                    <div>
+                        <label for="descriptionPost">Ajouter un nouveau post :</label>
+                        <textarea id="descriptionPost" formControlName="descriptionPost" name="descriptionPost" required></textarea>
+                        <div *ngIf="postForm?.controls?.['descriptionPost']?.invalid && postForm?.controls?.['descriptionPost']?.touched">
+                            <small class="text-danger" *ngIf="postForm?.controls?.['descriptionPost']?.errors?.['required']">
+                                La description du post est requise.
+                            </small>
+                            <small class="text-danger" *ngIf="postForm?.controls?.['descriptionPost']?.errors?.['minlength']">
+                                La description du post doit comporter au moins 20 caractères.
+                            </small>
+                            <small class="text-danger" *ngIf="postForm?.controls?.['descriptionPost']?.errors?.['maxlength']">
+                                La description du post ne doit pas dépasser 500 caractères.
+                            </small>
+                        </div>
+                    </div>
+                    <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary">Ajouter</button>
+                </form>
+            </div>
+        </div>
+    </div>
+   
+    
+    <div class="row">
+        <div class="col-md-12">
+            <div *ngFor="let post of posts" class="post mb-3 shadow">
+                <div class="post-header">
+                    <div class="media">
+                        <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="Avatar de l'utilisateur">
+                        <div class="media-body">
+                            <h5 class="mt-0">Nom de l'utilisateur</h5>
+                            
+                            <p>{{ getTranslatedPostDescription(post) }}</p>
+                            
+                            
+                    </div>
+                    <small class="text-muted">Date: {{ post.datePost | date:'dd/MM/yyyy HH:mm' }}</small>
+
+                    
+                </div>
+                <div class="post-actions">
+                    <button class="btn btn-floating btn-primary" (click)="ajouterLikeAuPost(post.idPost, userId)">
+                        <i class="bi bi-hand-thumbs-up"></i>
+                    </button>
+                    <button class="btn btn-floating btn-danger" (click)="ajouterDislikeAuPost(post.idPost, userId)">
+                        <i class="bi bi-hand-thumbs-down"></i>
+                    </button>
+                    <button class="btn btn-floating btn-warning" (click)="ajouterHahaAuPost(post.idPost, userId)">
+                        <i class="bi bi-emoji-laughing"></i>
+                    </button>
+                    <button class="btn btn-floating btn-danger" (click)="ajouterLoveAuPost(post.idPost, userId)">
+                        <i class="bi bi-heart"></i>
+                    </button>
+                    <button type="button" class="btn btn-secondary btn-sm" (click)="afficherFormulaireCommentaire(post.idPost)">View </button>
+                    
+                </div>
+                <div class="post-footer">
+                    <p>Total reactions: {{ post.totalReactions ? post.totalReactions : 0 }}</p>
+                </div>
+                <div class="post-comment-form">
+                    <form [formGroup]="CommentForm" (ngSubmit)="submitComment(post.idPost)">
+                        <div>
+                            <label for="description_comment">Commentaire :</label>
+                            <textarea id="description_comment" formControlName="description_comment" name="description_comment" required></textarea>
+                            <div *ngIf="CommentForm?.controls?.['description_comment']?.invalid && CommentForm?.controls?.['description_comment']?.touched">
+                                <small class="text-danger" *ngIf="CommentForm?.controls?.['description_comment']?.errors?.['required']">
+                                    Le commentaire est requis.
+                                </small>
+                            </div>
+                        </div>
+                        <button type="submit" [disabled]="CommentForm.invalid" class="btn btn-primary">Commenter</button>
+                    </form>
+                </div>
+                <!-- Afficher les résultats complets de l'analyse de toxicité -->
+
+
+                <div class="comments-container">
+                    <h5>Commentaires :</h5>
+                    <div *ngIf="selectedPostId !== null">
+                        <div *ngFor="let comment of translatedComments[selectedPostId]">
+                            <div class="comment">
+                                <div class="media">
+                                    <img src="https://via.placeholder.com/50" class="mr-3 rounded-circle" alt="Avatar de l'utilisateur">
+                                    <div class="media-body">
+                                        <h6 class="mt-0">Nom de l'utilisateur</h6>
+                                        <p>{{ comment.description_comment }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div *ngIf="!translatedComments[selectedPostId]?.length">Aucun commentaire traduit disponible.</div>
+                    </div>
+                    <div *ngIf="selectedPostId === null">Sélectionnez un post pour afficher les commentaires.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
