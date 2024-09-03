@@ -1,0 +1,88 @@
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a [routerLink]="['/home']">Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+
+            <li><a [routerLink]="['/shop']">Shop</a>
+                
+            </li>
+            <li><a href="#">International services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image">
+                          <a [routerLink]="['/ajouter-annonce']">
+                            <img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0">
+                          </a>
+                        </div>
+                        <a [routerLink]="['/ajouter-annonce']">
+                          <span>Add an ad</span>
+                        </a>
+                      </li>
+                      
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image">
+                            
+                            <a href="/annonces">
+                                
+                                <img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="/annonces">
+                            <span>Consult the ads</span>
+                        
+                    </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+            <li class="card-med" id="serv-board">
+                <a [routerLink]="['/cart']">
+                  <i class="bi bi-cart"></i>
+                  <span class="cart-item-count">{{cartItems}}</span>
+                </a>
+              </li>
+                              <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>

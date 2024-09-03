@@ -1,0 +1,50 @@
+<div class="container">
+  <!-- DONUT CHART BLOCK (LEFT-CONTAINER) --> 
+  <div class="container">
+    <!-- DONUT CHART BLOCK (LEFT-CONTAINER) --> 
+    <div class="donut-chart-block block"> 
+      <h2 class="titular">Total Users</h2>
+      <div class="donut-chart">
+        <!-- Use interpolation to dynamically calculate rotation angles -->
+        <div id="porcion1" class="recorte" [style.transform]="'rotate(' + calculateRotation(bannedCount, allUsers) + 'deg)'">
+          <div class="quesito ios"></div>
+        </div>
+        <div id="porcion2" class="recorte" [style.transform]="'rotate(' + calculateRotation(allUsers - bannedCount, allUsers) + 'deg)'">
+          <div class="quesito mac"></div>
+        </div>
+        <p class="center-date">Users</p>
+      </div>
+      <ul class="os-percentages horizontal-list">
+        <li>
+          <p class="ios os scnd-font-color">Banned</p>
+          <p class="os-percentage">{{ bannedCount }}</p>
+        </li>
+        <li>
+          <p class="mac os scnd-font-color">Users</p>
+          <p class="os-percentage">{{ allUsers }}</p>
+        </li>
+      </ul>
+    </div>
+    
+    <!-- BAR CHART BLOCK (RIGHT-CONTAINER) -->
+    <div class="bar-chart-block block">
+      <h2 class="titular">Stats</h2>
+      <div class="grafico bar-chart">
+        <ul class="eje-y">
+          <li data-ejeY="60"></li>
+          <li data-ejeY="45"></li>
+          <li data-ejeY="30"></li>
+          <li data-ejeY="15"></li>
+          <li data-ejeY="0"></li>
+        </ul>
+        <ul class="eje-x">
+          <li data-ejeX="37"><i>Banned</i></li>
+          <li data-ejeX="56"><i>Users</i></li>
+        </ul>
+        <!-- Dynamically set the height of the bar representing banned users -->
+        <div class="bar" [style.height.%]="(bannedCount / allUsers) * 100"></div>
+      </div>
+    </div>
+  </div>
+  
+</div>

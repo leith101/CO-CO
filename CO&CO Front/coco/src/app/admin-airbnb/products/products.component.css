@@ -1,0 +1,99 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .add-article-form {
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-article-form input[type="file"],
+  .add-article-form input[type="number"],
+  .add-article-form input[type="text"],
+  .add-article-form select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+  .add-article-form select {
+    background-color: white;
+    color: #333;
+  }
+  
+  .add-article-form button {
+    background-color: #ff5555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .add-article-form button:hover {
+    background-color: #ff3333;
+}
+.article-cards {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    width: 100%;
+    max-width: 300px;
+  
+    .card-image img {
+      width: 100%;
+      height: auto;
+    }
+  
+    .card-content {
+      padding: 10px;
+  
+      h3 {
+        font-size: 18px;
+        margin-bottom: 5px;
+      }
+  
+      p {
+        margin: 5px 0;
+      }
+    }
+  }
+  .article-name {
+    text-align: center;
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .delete-button {
+    background-color: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .delete-button:hover {
+    background-color: #c82333;
+  }
+  
+  h2{
+    margin-top: 30px;
+  }
+  
+  .card-image img {
+    height: 290px !important;
+  }

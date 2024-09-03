@@ -1,0 +1,342 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+body{
+  margin-top:20px;
+  color: #1a202c;
+  text-align: left;
+  background-color: #e2e8f0;    
+}
+.main-body {
+  padding: 15px;
+}
+.card {
+  box-shadow: 0 1px 3px 0 rgba(0,0,0,.1), 0 1px 2px 0 rgba(0,0,0,.06);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #fff;
+  background-clip: border-box;
+  border: 0 solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+}
+
+.card-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1rem;
+}
+
+.gutters-sm {
+  margin-right: -8px;
+  margin-left: -8px;
+}
+
+.gutters-sm>.col, .gutters-sm>[class*=col-] {
+  padding-right: 8px;
+  padding-left: 8px;
+}
+.mb-3, .my-3 {
+  margin-bottom: 1rem!important;
+}
+
+.bg-gray-300 {
+  background-color: #e2e8f0;
+}
+.h-100 {
+  height: 100%!important;
+}
+.shadow-none {
+  box-shadow: none!important;
+}
+
+nav {
+  color: var(--text-01);
+  font-weight: 600;
+  height: 64px;
+  background: #F9F9F9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pg-margin);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+nav ul.navigation-menu {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+  top: 0;
+}
+
+nav .navigation-menu a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--text-01);
+
+}
+
+nav .navigation-menu > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*    justify-items: center;*/
+}
+
+nav .navigation-menu > li > a {
+  position: relative;
+  /*    border: 1px solid purple;*/
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+nav .navigation-menu > li:hover ul.subnav {
+  visibility: visible;
+  opacity: 1;
+  top: 64px;
+
+}
+
+
+nav .navigation-menu > li > ul.subnav {
+  /*    border: 1px solid green;*/
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 66px;
+  background: var(--light-01);
+  box-shadow: var(--card-hover);
+  border-radius: 12px;
+  opacity: 0;
+  transition: var(--hover-timing);
+  
+}
+
+
+nav > #logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 8px;
+  line-height: 100%;
+  font-size: 50px;
+}
+
+nav > #logo > span {
+  font-size: 32px;
+}
+
+nav > #utility {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 16px;
+}
+
+nav {
+  position: relative;
+}
+
+nav ul.navigation-menu {
+  position: absolute;
+  position: absolute;
+  top: 64px;
+  background: var(--light-01);
+  left: 0;
+  z-index: -1;
+  width: 100vw;
+}
+
+nav ul.navigation-menu li a {
+  font-size: 16px;
+  /*        padding: 0 12px;*/
+  white-space: nowrap;
+}
+
+nav ul.navigation-menu .subnav {
+  display: none;
+}
+
+nav ul.navigation-menu > li:hover .subnav {
+  display: none;
+}
+
+ul.subnav {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-row: auto auto;
+  grid-column-gap: 24px;
+  grid-row-gap: 24px;
+  padding: 48px;
+}
+
+
+nav ul.navigation-menu {
+  top: 0;
+  z-index: 1;
+  background: none;
+  width: auto;
+  position: relative;
+}
+
+nav ul.navigation-menu .subnav {
+  display: flex;
+}
+
+nav ul.navigation-menu > li:hover .subnav {
+  display: flex;
+}
+
+#locate p {
+
+  width: 40%;
+}
+.banner {
+  background: #DB7F67;
+  color: #F9F9F9;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.rawef {
+  display: flex;
+  justify-content: center; /* Centre les éléments horizontalement */
+  align-items: center; /* Centre les éléments verticalement */
+}
+
+.preference-button-container {
+  margin: 0 10px; /* Espacement horizontal entre les boutons */
+}
+
+header {
+  /*    width: 100%;*/
+  height: auto;
+  position: sticky;
+  top: 0;
+  /*    border: 1px solid red;*/
+  z-index: 100;
+}
+
+.banner {
+  background: #4c649f;
+  color: #F9F9F9;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  padding: 8px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+nav {
+  color: var(--text-01);
+  font-weight: 600;
+  height: 64px;
+  background: #F9F9F9;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--pg-margin);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  z-index: 100;
+}
+
+nav ul.navigation-menu {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+  top: 0;
+}
+
+nav .navigation-menu a {
+  font-size: 16px;
+  text-decoration: none;
+  color: var(--text-01);
+
+}
+
+nav .navigation-menu > li {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /*    justify-items: center;*/
+}
+
+nav .navigation-menu > li > a {
+  position: relative;
+  /*    border: 1px solid purple;*/
+  padding: 0 20px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+}
+
+nav .navigation-menu > li:hover ul.subnav {
+  visibility: visible;
+  opacity: 1;
+  top: 64px;
+
+}
+
+
+nav .navigation-menu > li > ul.subnav {
+  /*    border: 1px solid green;*/
+  visibility: hidden;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  top: 66px;
+  background: var(--light-01);
+  box-shadow: var(--card-hover);
+  border-radius: 12px;
+  opacity: 0;
+  transition: var(--hover-timing);
+  
+}
+
+
+nav > #logo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 8px;
+  line-height: 100%;
+  font-size: 50px;
+}
+
+nav > #logo > span {
+  font-size: 32px;
+}
+
+nav > #utility {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  grid-gap: 16px;
+}

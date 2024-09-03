@@ -1,0 +1,210 @@
+<head>
+    
+  </head>
+<!-- =============== Navigation ================ -->
+<div class="navigation">
+    <ul>
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="bi bi-luggage-fill fs-3"></i>
+          </span>
+          <span class="title">Co&Co</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+              <i class="bi bi-border-all"></i>
+          </span>
+          <span class="title">Dashboard</span>
+        </a>
+      </li>
+
+      <li>
+        <a routerLink="/back2"> <!-- Mettez à jour l'attribut routerLink -->
+          <span class="icon">
+              <i class="bi bi-bag"></i>
+          </span>
+          <span class="title">Reservations</span>
+        </a>
+      </li>
+
+
+      <li>
+        <a href="#">
+          <span class="icon">
+            <i class="bi bi-chat"></i>
+          </span>
+          <span class="title">Messages</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+              <i class="bi bi-question-lg"></i>
+          </span>
+          <span class="title">Help</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+              <i class="bi bi-gear"></i>
+          </span>
+          <span class="title">Settings</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+              <i class="bi bi-lock"></i>
+          </span>
+          <span class="title">Password</span>
+        </a>
+      </li>
+
+      <li>
+        <a href="#">
+          <span class="icon">
+              <i class="bi bi-box-arrow-left"></i>
+          </span>
+          <span class="title">Sign Out</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+ 
+   <!-- ========================= Main ==================== -->
+   <div  class="main">
+       <div class="topbar">
+           <div class="toggle" >
+             <i class="fa fa-bars" aria-hidden="true"></i>
+           </div>
+ 
+           <div class="search">
+               <label>
+                   <input type="text" class="form-control" id="searchInput" placeholder="Search&hellip;" >
+                   <i class="fa fa-search" aria-hidden="true"></i>
+               </label>
+           </div>
+ 
+           <div class="user">
+               <img src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png" alt="">
+           </div>
+       </div>
+ 
+       <!-- ======================= Cards ================== -->
+       <div class="cardBox">
+        <div class="card">
+            <div>
+             <div class="numbers">{{ totalViews }}</div>
+             <div class="cardName">Total Views</div>
+            </div>
+
+            <div class="iconBx">
+             <i class="bi bi-eye"></i>
+           </div>
+        </div>
+
+
+        <div class="card">
+            <div>
+             <div class="numbers">{{ annonceCount }}</div>
+             <div class="cardName">Annonces</div>
+            </div>
+
+            <div class="iconBx">
+             <i class="bi bi-houses"></i>
+           </div>
+        </div>
+
+        <div class="card">
+         <div>
+          <div class="numbers">{{ reservationCount }}</div>
+          <div class="cardName">Réservations</div>
+         </div>
+
+         <div class="iconBx">
+           <i class="bi bi-cart"></i>
+         </div>
+     </div>
+
+        <div class="card">
+            <div>
+             <div class="numbers">{{ contractCount }}</div>
+             <div class="cardName">Contrats</div>
+            </div>
+
+            <div class="iconBx">
+             <i class="bi bi-menu-up"></i>
+           </div>
+        </div>
+    </div>
+
+
+    <div class="search">
+        <label>
+            <input type="text" class="form-control" id="searchInput" placeholder="Search&hellip;" (keyup)="filterTable()">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </label>
+    </div>
+         
+<div class="details">
+    <div class="recentOrders">
+      <div class="cardHeader">
+        <h2>Liste des Réservations</h2>
+      </div>
+  
+      <table class="table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Nombre de colocataires</th> <!-- Nouvelle colonne pour afficher le nombre de colocataires -->
+            <th>Actions</th>
+          </tr>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let reservation of reservations">
+            <td>{{ reservation.id }}</td>
+            <td>{{ reservation.date }}</td>
+            <td>{{ reservation.nbrColoc }}</td> <!-- Afficher le nombre de colocataires -->
+            <td>
+              <button class="btn btn-danger" (click)="deleteReservation(reservation.id)"><i class="bi bi-trash"></i> Supprimer</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  
+  
+  
+  <!-- ================= New Customers ================ -->
+  <div class="recentCustomers">
+    <div class="cardHeader">
+        <h2>Recent Users</h2>
+    </div>
+  
+    <table>
+        <tr *ngFor="let entry of reservationCountByDay | keyvalue">
+            <td width="60px">
+                <!-- Utilisez la date comme clé dans la boucle *ngFor -->
+                <div class="imgBx"><img src="https://i.ibb.co/wNsBZT4/active-man-thinking-avatar.png" alt=""></div>
+            </td>
+            <td>
+                <!-- Affichez la date et le nombre de réservations correspondant -->
+                <h4>{{ entry.key }}</h4>
+                <p>{{ entry.value }} réservations</p>
+            </td>
+        </tr>
+    </table>
+  </div>
+  

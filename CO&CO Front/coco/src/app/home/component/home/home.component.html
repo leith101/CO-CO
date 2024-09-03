@@ -1,0 +1,295 @@
+
+<body>
+
+
+  <header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    
+    <nav>
+      
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+          <li><a [routerLink]="['/not']">Notifications</a>
+            <ul class="subnav">
+ 
+                </ul>
+
+                <div class="verification-banner" *ngIf="loggedInUser && !loggedInUser.verified">
+                  <span>Veuillez vérifier votre compte en confirmant votre adresse e-mail.</span></div>
+
+
+            <li><a [routerLink]="['/annoncesColoc']">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a ><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a [routerLink]="['/annoncesColoc']">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right" ></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                      <div class="card-image"><a [routerLink]="['/annonceCOV']"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+
+            <li>
+                <a [routerLink]="['/login']"><i class="bi bi-box-arrow-right"></i>Logout</a>
+            </li>
+
+            <li>
+              <a [routerLink]="['/mesReservations']">mes reservations</a>
+            </li>
+            <li>
+              <a [routerLink]="['/voiture']">voitures</a>
+            </li>
+            <li>
+              <a [routerLink]="['/ajoutervoiture']">ajoutervoiture</a>
+            </li>
+            <li>
+              <a [routerLink]="['/ajouterannonce']">ajouterannonce</a>
+            </li>
+            <li>
+              <a [routerLink]="['/annonces']">mes annonces</a>
+            </li>
+
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>
+
+  
+<section class="hero">
+    <h1 class="heading-1">Co&Co L'Alliance Parfaite entre Colocation et Covoiturage!</h1>
+
+    
+  
+    <div class="btn-group">
+        <button class="btn-filled-dark"><span class="material-symbols-outlined">
+            <i class="bi bi-cart"></i>
+            </span>Shop All Products</button>
+        <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+            <i class="bi bi-calendar-check"></i>
+            </span> Book a Service</button>
+    </div>
+
+</section>
+
+
+ <h2 class="d-flex justify-content-center m-5"> <i class="bi bi-house-add"></i>   Collocation </h2>
+
+<section class="cards-wrapper">
+    
+    <div class="card-grid-space">
+     
+      <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/"  style="--bg-img: url(https://i.ibb.co/JdLRDMq/glossy-apartments.png)">
+        <div>
+          <h1>Appartement</h1>
+          <p>The syntax of a language is how it works. How to actually write it</p>
+          <div class="date">6 Oct 2024</div>
+          <div class="tags">
+            <div class="tag">100$</div>
+            
+          </div>
+          <button class="btn-outline-light">Shop All<i class="bi bi-arrow-right"></i></button>
+        </div>
+      </a>
+    </div>
+    <div class="card-grid-space">
+      
+      <a class="card" href="https://codetheweb.blog/2017/10/09/basic-types-of-html-tags/" style="--bg-img: url('https://i.ibb.co/NT6w82T/smart-modern-minimalistic-house-with-keys.png')">
+        <div>
+          <h1>Maison individuelle</h1>
+          <p>Garage ou Parking Privé </p>
+             <p>Structure Indépendante </p>
+            <p>Propriété Exclusive</p>  
+          <div class="date">9 Oct 2024</div>
+          <div class="tags">
+            <div class="tag">50$</div>
+          </div>
+          <button class="btn-outline-light">Shop All<i class="bi bi-arrow-right"></i></button>
+        </div>
+      </a>
+    </div>
+    <div class="card-grid-space">
+      
+      <a class="card" href="https://codetheweb.blog/2017/10/14/links-images-about-file-paths/" style="--bg-img: url('https://i.ibb.co/Q7Wn0zg/casual-life-3d-two-sale-tags-1.png')">
+        <div>
+          <h1>Duplex</h1>
+          <p>Learn how to use links and images along with file paths…</p>
+          <div class="date">14 Oct 2024</div>
+          <div class="tags">
+            <div class="tag">15$ </div>
+          </div>
+          <button class="btn-outline-light">Shop All<i class="bi bi-arrow-right"></i></button>
+        </div>
+      </a>
+    </div>
+    <!-- https://images.unsplash.com/photo-1520839090488-4a6c211e2f94?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=38951b8650067840307cba514b554ba5&auto=format&fit=crop&w=1350&q=80 -->
+  </section>
+
+
+<section class="rawef">
+    <h2>Covoiturage</h2>
+
+    <ul class="services">
+        <li class="card-large card-dark card-wide" id="serv-groom">
+            <div class="card-image"  ><a href="https://imgbb.com/"><img src="https://i.ibb.co/gR7PL0b/3d-casual-life-looking-through-resumes.png" alt="3d-casual-life-looking-through-resumes" border="0"></a></div>
+            <ul>
+                Covoiturage d'Entreprise<span class="subtitle">Soyons Partenaires de Route: Ensemble pour une Mobilité Durable!</span>
+                <li><a href="#">1 month</a><span>$16</span></li>
+                <li><a href="#">3 months</a><span>$80</span></li>
+                <li><a href="#">1 year</a><span>$160</span></li>
+                <button class="btn-filled-dark"><i class="bi bi-calendar-check"></i>Book Now</button>
+
+            </ul>
+
+
+        </li>
+        <li class="card-large card-dark card-wide" id="serv-board">
+            <div class="card-image"  ><a href="https://imgbb.com/"><img src="https://i.ibb.co/2NBpsMh/bubble-gum-man-with-check-mark-sign.png" alt="bubble-gum-man-with-check-mark-sign" border="0"></a></div>
+            <ul>
+                Covoiturage Individuel<span class="subtitle">Partageons nos Routes, Réduisons nos Empruntes : Covoiturons Ensemble</span>
+                <li><a href="#">1 month</a><span>$80</span></li>
+                <li><a href="#">1 month</a><span>$80</span></li>
+                <button class="btn-filled-dark"><i class="bi bi-calendar-check"></i>Book Now</button>
+            </ul>
+
+        </li>
+    </ul>
+</section>
+
+<section id="locate">
+
+    <div>
+        <h2>Location &amp; Hours</h2>
+        <p>Our knowledgeable and friendly staff is always ready to assist you in making the best choices for your furry, feathered, or finned friends.</p>
+        <div class="btn-group">
+            <button class="btn-filled-dark"><span class="material-symbols-outlined">
+pin_drop
+</span>Find a Store</button>
+            <button class="btn-outline-dark btn-hover-color"><span class="material-symbols-outlined">
+contact_support
+</span> Contact Us</button>
+        </div>
+    </div>
+</section>
+
+
+
+<section id="statics">
+    <div>
+        <h2>Statics</h2>
+        
+        <div class="container" style="display: flex;">
+            <div class="panel post">
+              <a href="javascript:void();"><span>8 </span>Users</a>
+            </div>
+            <div class="panel comment">
+              <a href="javascript:void();"><span>39 </span>Locations</a>
+            </div>
+            <div class="panel page">
+              <a href="javascript:void();"><span>5 </span>Covoiturage</a>
+            </div>
+            
+           
+          </div>
+
+    </div>
+
+</section>
+
+
+
+
+<script>
+  AOS.init({
+    duration: 3000,
+    once: true,
+  });
+
+ 
+
+</script>
+
+</body>
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3><span>Co&Co</span></h3>
+
+        <p class="footer-links">
+            <a href="#" class="link-1">Home</a>
+            
+            <a href="#">Blog</a>
+        
+            <a href="#">Pricing</a>
+        
+            <a href="#">About</a>
+            
+            <a href="#">Faq</a>
+            
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name © 2024</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Tunis</span> Ariana soghra</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+216 96816101</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href=""></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>

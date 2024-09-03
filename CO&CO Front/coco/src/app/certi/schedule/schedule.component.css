@@ -1,0 +1,219 @@
+/* style.css */
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
+
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+@import url('https://fonts.googleapis.com/css?family=Heebo:400,700|Open+Sans:400,700');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,500,300,700);
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:wght@900&family=Sumana:wght@700&display=swap");
+
+
+body { 
+	font-family: 'Poppins', sans-serif; 
+	margin: 0; 
+	padding: 0; 
+	display: flex; 
+	align-items: center; 
+	justify-content: center; 
+	min-height: 100vh; 
+	background-image: 
+		linear-gradient(120deg, #caeff2 0%, #a2c2ee 100%); 
+} 
+
+.ffbox { 
+	display: flex; 
+	width: 80%; 
+	max-width: 800px; 
+	background-color: #fff; 
+	border: 3px solid #e4e4e9; 
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+	overflow: hidden; 
+	border-radius: 10px; 
+	flex-wrap: wrap; 
+} 
+
+.ffbox1 { 
+	flex: 1; 
+	padding: 20px; 
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+} 
+
+.ffbox1 label { 
+	display: block; 
+	margin-bottom: 8px; 
+} 
+
+.ffbox1 input, 
+.ffbox1 textarea { 
+	width: 100%; 
+	padding: 8px; 
+	margin-bottom: 16px; 
+	box-sizing: border-box; 
+	border-radius: 15px; 
+	background-color: #dcdce1; 
+	border: none; 
+} 
+
+.ffbox1 textarea { 
+	resize: vertical; 
+} 
+
+.ffbox1 { 
+	margin-bottom: 16px; 
+} 
+
+.ffbox1 label { 
+	margin-right: 16px; 
+} 
+
+.map-div { 
+	flex: 1; 
+	background-color: #eee; 
+} 
+
+button { 
+	width: 100%; 
+	padding: 8px; 
+	margin-bottom: 16px; 
+	box-sizing: border-box; 
+	border-radius: 15px; 
+	background-color: rgb(105, 152, 111); 
+	color: rgb(183, 213, 179); 
+	font-size: 17px; 
+	font-weight: 700; 
+	border: #a2c2ee; 
+} 
+
+button:hover { 
+	background-color: rgb(52, 98, 58); 
+} 
+
+.map-div iframe { 
+	border: 0; 
+	padding: 10px; 
+} 
+
+.gfg { 
+	text-align: center; 
+	color: green; 
+} 
+
+.map-div { 
+	background-color: rgb(152, 178, 234); 
+}
+header {
+    /*    width: 100%;*/
+    height: auto;
+    position: sticky;
+    top: 0;
+    /*    border: 1px solid red;*/
+    z-index: 100;
+}
+
+.banner {
+    background: #4c649f;
+    color: #F9F9F9;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.2;
+    padding: 8px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+
+nav {
+    color: var(--text-01);
+    font-weight: 600;
+    height: 64px;
+    background: #F9F9F9;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 var(--pg-margin);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    z-index: 100;
+}
+
+nav ul.navigation-menu {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    justify-content: center;
+    position: relative;
+    top: 0;
+}
+
+nav .navigation-menu a {
+    font-size: 16px;
+    text-decoration: none;
+    color: var(--text-01);
+
+}
+
+nav .navigation-menu > li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*    justify-items: center;*/
+}
+
+nav .navigation-menu > li > a {
+    position: relative;
+    /*    border: 1px solid purple;*/
+    padding: 0 20px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
+}
+
+nav .navigation-menu > li:hover ul.subnav {
+    visibility: visible;
+    opacity: 1;
+    top: 64px;
+
+}
+
+
+nav .navigation-menu > li > ul.subnav {
+    /*    border: 1px solid green;*/
+    visibility: hidden;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    top: 66px;
+    background: var(--light-01);
+    box-shadow: var(--card-hover);
+    border-radius: 12px;
+    opacity: 0;
+    transition: var(--hover-timing);
+    
+}
+
+
+nav > #logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 8px;
+    line-height: 100%;
+    font-size: 50px;
+}
+
+nav > #logo > span {
+    font-size: 32px;
+}
+
+nav > #utility {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    grid-gap: 16px;
+}
+
+
+  

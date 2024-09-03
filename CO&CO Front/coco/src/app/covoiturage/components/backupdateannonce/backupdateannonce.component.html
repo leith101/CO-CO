@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Announcement</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 10px;
+        }
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+        input,
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .submit-btn {
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #105da0;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+       
+        <h2>Update Announcement</h2>
+        <form (ngSubmit)="updateAnnonce()">
+            <table>
+                <tr>
+                    <td>
+                        <label for="titre">Title:</label>
+                        <input type="text" id="titre" name="titre" [(ngModel)]="annonce.titre" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="description">Description:</label>
+                        <textarea id="description" name="description" [(ngModel)]="annonce.description" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="dateDepart">Date de Departure:</label>
+       
+        <input
+            type="datetime-local"
+            id="dateDepart"
+            name="dateDepart"
+            [ngModel]="annonce.dateDepart | date:'yyyy-MM-ddTHH:mm'" 
+            [ngModelOptions]="{standalone: true}"
+            (ngModelChange)="annonce.dateDepart=$event" 
+            required
+        />
+    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pointDepart">Point of Departure:</label>
+                        <textarea id="pointDepart" name="pointDepart" [(ngModel)]="annonce.pointDepart" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pointArrivee">Point of Arrival:</label>
+                        <textarea id="pointArrivee" name="pointArrivee" [(ngModel)]="annonce.pointArrivee" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="pointStop">Point of Stop:</label>
+                        <textarea id="pointStop" name="pointStop" [(ngModel)]="annonce.pointStop" required></textarea>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="placesDisponibles">Available Seats:</label>
+                        <input type="number" id="placesDisponibles" name="placesDisponibles" [(ngModel)]="annonce.placesDisponibles" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="contact">Contact:</label>
+                        <input type="number" id="contact" name="contact" [(ngModel)]="annonce.contact" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="status">Status:</label>
+                        <!-- Dropdown with "ACTIVE" or "INACTIVE" -->
+                        <select id="status" name="status" [(ngModel)]="annonce.status" required>
+                            <option value="ACTIVE">ACTIVE</option>
+                            <option value="INACTIVE">INACTIVE</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="distance">Distance:</label>
+                        <input type="number" id="distance" name="distance" [(ngModel)]="annonce.distance" required/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <label for="prix">Price:</label>
+                        <input type="number" id="prix" name="prix" [(ngModel)]="annonce.prix" required />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="submit-btn">
+                        <button type="submit">Update Announcement</button>
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+</body>
+</html>

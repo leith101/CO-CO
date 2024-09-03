@@ -1,0 +1,198 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co&Co Dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <style>
+      body {
+      font-family: 'Roboto', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #e9ecef; 
+    }
+
+    .main-container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+   
+
+   
+ 
+
+    
+
+
+    /* Main content styles */
+    .main {
+      flex: 1; 
+      padding: 20px;
+    }
+
+    
+
+    .toggle {
+      cursor: pointer;
+    }
+
+    .search {
+      display: flex;
+      align-items: center;
+    }
+
+    .search input {
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      padding: 5px 10px;
+    }
+
+    /* Table styles */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f2f2f2;
+      color: #333;
+      font-weight: bold;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th:hover {
+      background-color: #e0e0e0; /* Hover effect for table headers */
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    tr:hover {
+      background-color: #f2f2f2; /* Hover effect for table rows */
+    }
+
+    /* Button styles */
+    .delete-button {
+      background-color: red;
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .delete-button:hover {
+      background-color: darkred; /* Hover effect for delete button */
+    }
+
+    .update-button {
+      background-color: #17a2b8; /* Bootstrap blue color */
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+
+    .update-button:hover {
+      background-color: #138f9f; /* Darker shade for hover effect */
+    }
+    </style>
+    </head>
+    <body>
+    <div class="container">
+        <!-- Navigation Section -->
+        <div class="navigation">
+        <ul>
+            <li><a href="#"><span class="icon"><i class="bi bi-luggage-fill fs-3"></i></span><span class="title">Co&Co</span></a></li>
+            <li><a href="#"><span class="icon"><i class="fa fa-home" aria-hidden="true"></i></span><span class="title">Dashboard</span></a></li>
+            <li><a href="#"><span class="icon"><i
+                        class="fa fa-users" aria-hidden="true"></i></span><span class="title">Customers</span></a></li>
+            <li><a href="#"><span class="icon"><i class="fa fa-comment-o" aria-hidden="true"></i></span><span class="title">Messages</span></a></li>
+            <li><a href="#"><span class="icon"><i
+                        class="fa fa-question" aria-hidden="true"></i></span><span class="title">Help</span></a></li>
+            <li><a href="#"><span class="icon"><i
+                        class="fa fa-cog" aria-hidden="true"></i></span><span class="title">Settings</span></a></li>
+            <li><a href="#"><span class="icon"><i
+                        class="fa fa-lock" aria-hidden="true"></i></span><span class="title">Password</span></a></li>
+            <li><a href="#"><span class="icon"><i
+                        class="fa fa-sign-out" aria-hidden="true"></i></span><span class="title">Sign Out</span></a></li>
+        </ul>
+        </div>
+
+        <!-- Main Content Section -->
+        <div class="main">
+        <div class="topbar">
+            <div class="toggle"><i class="fa fa-bars" aria-hidden="true"></i></div>
+            <div class="search">
+            <input type="text" [(ngModel)]="searchText" (ngModelChange)="onSearchTextChanged()" placeholder="Search..." />
+            <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+        </div>
+        <button class="export-button" (click)="exportToExcel()"> Excel</button>
+
+        <!-- Table Section -->
+        <table>
+            <thead>
+            <tr>
+                <th (click)="onSort('titre')">
+                    Titre
+                    <i class="fa" [ngClass]="sortColumn === 'titre' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th (click)="onSort('placesDisponibles')">
+                    Places disponibles
+                    <i class="fa" [ngClass]="sortColumn === 'placesDisponibles' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th (click)="onSort('dateDepart')">
+                    Date de Départ
+                    <i class="fa" [ngClass]="sortColumn === 'dateDepart' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th (click)="onSort('pointDepart')">
+                    Point de Départ
+                    <i class="fa" [ngClass]="sortColumn === 'pointDepart' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th (click)="onSort('pointArrivee')">
+                    Point d'Arrivée
+                    <i class="fa" [ngClass]="sortColumn === 'pointArrivee' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th (click)="onSort('status')">
+                    Status
+                    <i class="fa" [ngClass]="sortColumn === 'status' && sortDirection === 'asc' ? 'fa-caret-up' : 'fa-caret-down'"></i>
+                </th>
+                <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+
+            <!-- Angular *ngFor directive to loop through filteredAnnonces -->
+            <tr *ngFor="let annonce of filteredAnnonces">
+                <td>{{ annonce.titre }}</td>
+                <td>{{ annonce.placesDisponibles }}</td>
+                <td>{{ annonce.dateDepart | date:'dd/MM/yyyy h:mm a' }}</td>
+                <td>{{ annonce.pointDepart }}</td>
+                <td>{{ annonce.pointArrivee }}</td>
+                <td>{{ annonce.status }}</td>
+                <td>
+                <button class="delete-button" (click)="deleteAnnonce(annonce.ida)">Delete</button>
+                <button class="update-button" (click)="navigateToUpdatePage(annonce.ida)">Update</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        </div>
+    </div>
+    </body>
+    </html>

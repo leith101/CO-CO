@@ -1,0 +1,117 @@
+
+
+<body>
+
+
+  <header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a >Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a  > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a  routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+ </header>
+
+<div class="form-container">
+<form (submit)="addEvent()">
+  <input type="text" [(ngModel)]="place" name="place" required class="input"placeholder="Place:"><br>
+  
+  
+  <input type="datetime-local" [(ngModel)]="time" name="time" required placeholder="time" class="input"placeholder="Time:"><br>
+  
+
+  
+  <textarea [(ngModel)]="description" name="description" required class="input"placeholder="Description:"></textarea><br>
+
+  
+  <input type="text" [(ngModel)]="imageUrl" name="imageUrl" class="input" placeholder="Image URL:"><br>
+
+
+  
+  <button type="submit">Add Event</button>
+</form>
+</div>
+<div class="flip-card-container">
+<div *ngFor="let event of events" class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <p class="title">Event at {{ event.time }}</p>
+      <p>{{ event.place }}</p>
+    </div>
+    <div class="flip-card-back">
+      <p class="title">Description</p>
+      <p>{{ event.description }}</p>
+      <button>
+        Button
+    </button>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<html ng-app="myApp" ng-controller="AppCtrl" lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Circle</title>
+  </head>
+  <body>
+  
+    <google-map></google-map>
+  </body>
+</html>
+  
+</body>

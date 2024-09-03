@@ -1,0 +1,210 @@
+<header>
+    <div class="banner">Get over 50% off.</div>
+
+    <nav>
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a href="#">Home</a>
+                <ul class="subnav">
+                    <!-- Add submenu items here if needed -->
+                </ul>
+            </li>
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img
+                                    src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png"
+                                    alt="quirky-real-estate-house-with-a-key-1" [border]="0"></a></div>
+                        <a href="#">
+                            <span>roommate</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img
+                                    src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png"
+                                    alt="transistor-man-traveling-by-car-with-dog" [border]="0"></a></div>
+                        <a href="#">
+                            <span>carpooling</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a></li>
+            <li><a href="#">About Us</a></li>
+        </ul>
+        <div id="utility">
+            <li class="card-med" id="serv-board"><a><i class="bi bi-cart"></i></a></li>
+            <li class="card-med" id="serv-board"><a routerLinkActive="active"><i
+                        class="bi bi-person-fill"></i></a></li>
+        </div>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="search-container">
+        <input type="text" [(ngModel)]="searchTerm" (keyup)="performSearch()" placeholder="Search...">
+        <button type="button"><i class="bi bi-search"></i></button>
+    </div>
+
+    <div class="filters-container">
+        <div class="filters">
+            <div class="filter">
+                <label for="dateFilter">Date:</label>
+                <select id="dateFilter" [(ngModel)]="dateSortOrder" (change)="sortReclamations()">
+                    <option value="asc">Ascending</option>
+                    <option value="desc">Descending</option>
+                </select>
+            </div>
+
+            <div class="filter">
+                <label for="stateFilter">State:</label>
+                <select id="stateFilter" [(ngModel)]="filterState" (change)="filterReclamations()">
+                    <option value="">All</option>
+                    <option value="1">Resolved</option>
+                    <option value="0">Pending</option>
+                </select>
+            </div>
+
+            <div class="filter">
+                <label for="categoryFilter">Category:</label>
+                <select id="categoryFilter" [(ngModel)]="filterCategory" (change)="filterReclamations()">
+                    <option value="">All</option>
+                    <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <div class="reclamations" *ngIf="reclamations.length > 0; else noReclamations">
+        <h2>List of complaints</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Subject</th>
+                    <th>Description</th>
+                    <th>Complaint Date</th>
+                    <th>Responses</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let reclamation of reclamations; let i = index">
+
+                    <tr>
+                        <td>{{ reclamation.categorie_reclamation }}</td>
+                        <td>{{ reclamation.objet_reclamation }}</td>
+                        <td>{{ reclamation.description_reclamation }}</td>
+                        <td>{{ reclamation.date_reclamation }}</td>
+                        <td>
+                            <ul>
+                                <li *ngFor="let reponse of reclamation.reponses">
+                                    {{ reponse.description_reponse }}
+                                </li>
+                            </ul>
+                        </td>
+                        <td>{{ reclamation.etat_reclamation }}</td>
+                        <td matTooltip="Delete" matTooltipPosition="above">
+                            
+                            <i class="bi bi-trash delete-icon"
+                                (click)="supprimerReclamation(reclamation.id_reclamation)"></i>
+
+                        </td>
+                    </tr>
+                    <tr *ngIf="i !== reclamations.length - 1" class="table-divider"></tr>
+                </ng-container>
+            </tbody>
+        </table>
+
+    </div>
+    <div *ngIf="showReponseForm && selectedReclamationId !== null" class="reclamation-form">
+        <h2>Modify Complaint</h2>
+        <form (submit)="modifierReclamation()">
+          <!-- Ajoutez les champs de formulaire pour la modification de la réclamation -->
+          <div class="form-group">
+            <label for="description_reponse">Description:</label>
+            <textarea id="description_reponse" name="description_reponse" [(ngModel)]="description_reponse" required></textarea>
+          </div>
+          <!-- Ajoutez d'autres champs de formulaire pour la modification -->
+      
+          <button type="submit">Submit</button>
+          <button type="button" (click)="cancelReponse()">Cancel</button>
+        </form>
+      </div>
+      
+
+    <mat-paginator [length]="originalReclamations.length" [pageSizeOptions]="[5, 10, 25, 100]" (page)="onPageChange($event)"
+        showFirstLastButtons>
+    </mat-paginator>
+
+    <ng-template #noReclamations>
+        <div class="no-reclamations">
+            <p>No complaints to display at the moment.</p>
+        </div>
+    </ng-template>
+</div>
+<div class="chart-container">
+    <canvas id="myChart" width="600" height="400"></canvas>
+</div>
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3><span>Co&Co</span></h3>
+
+        <p class="footer-links">
+            <a href="#" class="link-1">Home</a>
+            <a href="#">Blog</a>
+            <a href="#">Pricing</a>
+            <a href="#">About</a>
+            <a href="#">Faq</a>
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name © 2024</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Tunis</span> Ariana Soghra</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+216 96816101</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href=""></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus
+            vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+        </div>
+
+    </div>
+
+</footer>

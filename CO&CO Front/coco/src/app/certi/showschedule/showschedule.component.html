@@ -1,0 +1,170 @@
+
+
+<header>
+  <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+  
+  <nav>
+        
+      <div id="logo">
+          <i class="bi bi-luggage-fill"></i>
+          Co&Co
+      </div>
+      <ul class="navigation-menu">
+          <li><a [routerLink]="['/home']">Home</a>
+              <ul class="subnav">
+
+              </ul>
+
+
+          <li><a href="#">Services</a>
+              <ul class="subnav">
+                  <li class="card-med" id="serv-groom">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                      <a href="#">
+                          <span>colocation</span>
+                          <span>More Info <i class="bi bi-arrow-right"></i></span>
+                      </a>
+                  </li>
+                  <li class="card-med" id="serv-board">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                      <a href="#">
+                          <span>covoiturage</span>
+                          <span>More Info<i class="bi bi-arrow-right"></i></span>
+                      </a>
+              </ul>
+          </li>
+          <li><a [routerLink]="['/schedule']" >schedule</a>
+          </li>
+          <li><a [routerLink]="['/certification']" >certification</a>
+          </li>
+          <li>
+              <a href="#">About Us</a>
+          </li>
+          
+
+      </ul>
+      <div id="utility">
+
+              <li class="card-med" id="serv-board"><a [routerLink]="['/panier']" > <i class="bi bi-cart"></i></a></li> 
+              <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+              
+              
+           
+      </div>
+
+
+      
+  </nav>
+</header>
+<mat-stepper headerPosition="bottom" #stepper>
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template matStepLabel>choose your area</ng-template>
+    
+      <section class="radiobutton">
+        <label id="example-radio-group-label">Pick your area</label>
+        <mat-radio-group
+          aria-labelledby="example-radio-group-label"
+          class="example-radio-group"
+          [(ngModel)]="favoriteSeason"
+          (change)="onFavoriteSeasonChange()">
+          <ng-container *ngFor="let season of seasons">
+            <mat-radio-button class="example-radio-button" [value]="season">{{season}}</mat-radio-button>
+          </ng-container>
+        </mat-radio-group>
+        <div>Your area is: {{favoriteSeason}}</div>
+      </section>
+    
+    <div>
+      <button mat-button matStepperNext >Next</button>
+    </div>
+  </mat-step>
+  
+  <mat-step [stepControl]="secondFormGroup" optional>
+    <ng-template matStepLabel>pick your date</ng-template>
+    
+      <mat-card class="demo-inline-calendar-card">
+        <mat-calendar [(selected)]="selected" (selectedChange)="onDateSelected()"></mat-calendar>
+      </mat-card>
+      <p>Selected date: {{selected}}</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button matStepperNext (click)="filterDataSource()">Next</button>
+    </div>
+  </mat-step>
+  
+
+
+
+
+
+
+
+
+
+
+<mat-step [stepControl]="secondFormGroup" optional>
+  <ng-template matStepLabel>this is all the schedules</ng-template>
+<section class="example-container mat-elevation-z8" tabindex="0">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <!-- Name Column -->
+      
+      <ng-container class="ff" matColumnDef="Name" sticky>
+        <th  *matHeaderCellDef> Name </th>
+        <td mat-cell *matCellDef="let element"> {{element.scheduleId}} </td>
+      </ng-container>
+  
+      <!-- Position Column -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef> date </th>
+        <td mat-cell *matCellDef="let element"> {{element.date}} </td>
+      </ng-container>
+  
+      <!-- Weight Column -->
+      <ng-container matColumnDef="station">
+        <th mat-header-cell *matHeaderCellDef> station </th>
+        <td mat-cell *matCellDef="let element"> {{element.station}} </td>
+      </ng-container>
+
+            <!-- Weight Column -->
+            <ng-container matColumnDef="area">
+                <th mat-header-cell *matHeaderCellDef>area</th>
+                <td mat-cell *matCellDef="let element"> {{element.area}} </td>
+              </ng-container>
+  
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="availability">
+        <th mat-header-cell *matHeaderCellDef> availability </th>
+        <td mat-cell *matCellDef="let element"> {{element.availability}} </td>
+      </ng-container>
+  
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="price">
+                <th mat-header-cell *matHeaderCellDef> price </th>
+                <td mat-cell *matCellDef="let element"> {{element.price}} </td>
+              </ng-container>
+
+
+      <!-- Star Column -->
+      <ng-container matColumnDef="star" stickyEnd>
+        <th mat-header-cell *matHeaderCellDef aria-label="row actions">&nbsp;</th>
+        <td mat-cell *matCellDef="let element">
+          <button (click)="openDialog(element.station)">see the station</button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </section>
+  <div>
+    <button mat-button matStepperPrevious (click)="onFavoriteSeasonChange()">Back</button>
+
+  </div>
+</mat-step>
+
+
+  
+
+
+  

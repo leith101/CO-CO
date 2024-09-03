@@ -1,0 +1,85 @@
+
+
+<header>
+  <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+  
+  <nav>
+        
+      <div id="logo">
+          <i class="bi bi-luggage-fill"></i>
+          Co&Co
+      </div>
+      <ul class="navigation-menu">
+          <li><a >Home</a>
+              <ul class="subnav">
+
+              </ul>
+
+
+          <li><a href="#">Services</a>
+              <ul class="subnav">
+                  <li class="card-med" id="serv-groom">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                      <a href="#">
+                          <span>colocation</span>
+                          <span>More Info <i class="bi bi-arrow-right"></i></span>
+                      </a>
+                  </li>
+                  <li class="card-med" id="serv-board">
+                      <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                      <a href="#">
+                          <span>covoiturage</span>
+                          <span>More Info<i class="bi bi-arrow-right"></i></span>
+                      </a>
+              </ul>
+          </li>
+          <li><a href="#locate">Locations &amp; Hours</a>
+          </li>
+          <li>
+              <a href="#">About Us</a>
+          </li>
+          
+
+      </ul>
+      <div id="utility">
+
+              <li class="card-med" id="serv-board"><a  > <i class="bi bi-cart"></i></a></li> 
+              <li class="card-med" id="serv-board"><a  routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+              
+              
+           
+      </div>
+
+
+      
+  </nav>
+</header>
+
+
+<div class="container">
+  <h2>Add Voiture</h2>
+  <form (ngSubmit)="addVoiture()" class="add-voiture-form">
+      <div class="form-group">
+          <label for="matricule">Matricule:</label>
+          <input type="text" [(ngModel)]="matricule" name="matricule" id="matricule" class="form-control" required>
+      </div>
+      <div class="form-group">
+          <label for="nombrePlaces">Nombre of Places:</label>
+          <input type="number" [(ngModel)]="nombrePlaces" name="nombrePlaces" id="nombrePlaces" class="form-control" required>
+      </div>
+      <div class="form-group">
+          <label for="marque">Marque:</label>
+          <input type="text" [(ngModel)]="marque" name="marque" id="marque" class="form-control">
+      </div>
+      <div class="form-group">
+          <label for="modele">Modèle:</label>
+          <input type="text" [(ngModel)]="modele" name="modele" id="modele" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="img">Image:</label>
+        <input type="file" (change)="onFileSelected($event)" accept="image/*" class="form-control">
+    </div>
+    
+      <button type="submit" class="btn btn-primary">Add Voiture</button>
+  </form>
+</div>

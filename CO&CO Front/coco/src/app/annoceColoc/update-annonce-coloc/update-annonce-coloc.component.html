@@ -1,0 +1,245 @@
+<header>
+    <div class="banner">Bénéficiez d'une réduction de plus de 50%.</div>
+    
+    <nav>
+          
+        <div id="logo">
+            <i class="bi bi-luggage-fill"></i>
+            Co&Co
+        </div>
+        <ul class="navigation-menu">
+            <li><a [routerLink]="['/home']">Home</a>
+                <ul class="subnav">
+ 
+                </ul>
+
+
+            <li><a href="#">Services</a>
+                <ul class="subnav">
+                    <li class="card-med" id="serv-groom">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/19R91NJ/quirky-real-estate-house-with-a-key-1.png" alt="quirky-real-estate-house-with-a-key-1" border="0"></a></div>
+                        <a href="#">
+                            <span>colocation</span>
+                            <span>More Info <i class="bi bi-arrow-right"></i></span>
+                        </a>
+                    </li>
+                    <li class="card-med" id="serv-board">
+                        <div class="card-image"><a href="https://imgbb.com/"><img src="https://i.ibb.co/89c6fM4/transistor-man-traveling-by-car-with-dog.png" alt="transistor-man-traveling-by-car-with-dog" border="0"></a></div>
+                        <a href="#">
+                            <span>covoiturage</span>
+                            <span>More Info<i class="bi bi-arrow-right"></i></span>
+                        </a>
+                </ul>
+            </li>
+            <li><a href="#locate">Locations &amp; Hours</a>
+            </li>
+            <li>
+                <a href="#">About Us</a>
+            </li>
+            
+
+        </ul>
+        <div id="utility">
+
+                <li class="card-med" id="serv-board"><a [routerLink]="['/panier']" > <i class="bi bi-cart"></i></a></li> 
+                <li class="card-med" id="serv-board"><a [routerLink]="['/profile']" routerLinkActive="active" > <i class="bi bi-person-fill"></i></a></li>
+                
+                
+             
+        </div>
+
+
+        
+    </nav>
+</header>
+
+<div class="container">
+    <h2>Annonce de Colocation</h2>
+   
+    
+    <form (ngSubmit)="updateAnnonce()" class="col-md-6">
+        <div class="form-group row mb-3">
+            <label for="titre" class="col-sm-3 col-form-label">Titre :</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="titre" [(ngModel)]="annonceColoc.titre" name="titre">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="description" class="col-sm-3 col-form-label">Description :</label>
+            <div class="col-sm-9">
+                <textarea class="form-control" id="description" [(ngModel)]="annonceColoc.description" name="description" rows="5"></textarea>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="adresse" class="col-sm-3 col-form-label">Adresse :</label>
+            <div class="col-sm-9 col-md-6">
+                <input type="text" class="form-control" id="adresse" [(ngModel)]="annonceColoc.adresse" name="adresse">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="nbrChambres" class="col-sm-3 col-form-label">Nombre de Chambres :</label>
+            <div class="col-sm-9 col-md-6">
+                <input type="number" class="form-control" id="nbrChambres" [(ngModel)]="annonceColoc.nbrChambres" name="nbrChambres">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="superficie" class="col-sm-3 col-form-label">Superficie :</label>
+            <div class="col-sm-9 col-md-6 d-flex align-items-center">
+                <input type="number" class="form-control" id="superficie" [(ngModel)]="annonceColoc.superficie" name="superficie">
+                <div class="input-group-append">
+                    <span class="input-group-text" style="font-size: 1rem;">m²</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="image" class="col-sm-3 col-form-label">Image :</label>
+            <div class="col-sm-9 col-md-6">
+                <input type="text" class="form-control" id="image" [(ngModel)]="annonceColoc.image" name="image">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="prix" class="col-sm-3 col-form-label">Prix :</label>
+            <div class="col-sm-9 col-md-6">
+                <div class="input-group">
+                    <input type="number" class="form-control" id="prix" [(ngModel)]="annonceColoc.prix" name="prix">
+                    <div class="input-group-append">
+                        <span class="input-group-text">DT</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="nomProp" class="col-sm-3 col-form-label">Nom du Propriétaire :</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="nomProp" [(ngModel)]="annonceColoc.nomProp" name="nomProp">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="numT" class="col-sm-3 col-form-label">Numéro de Téléphone :</label>
+            <div class="col-sm-9">
+                <input type="text" class="form-control" id="numT" [(ngModel)]="annonceColoc.numT" name="numT">
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label for="typeLocal" class="col-sm-3 col-form-label">Type de Local :</label>
+            <div class="col-sm-9 col-md-6">
+                <select class="form-control" id="type" [(ngModel)]="annonceColoc.type" name="type">
+                    <option value="Studio">Studio</option>
+                    <option value="apartment">apartment</option>
+                    <option value="House">House</option>
+                    <option value="Duplex">Duplex</option>
+                    <option value="villa">villa</option>
+                    <option value="cabin">cabin</option>
+
+
+
+                    <!-- Ajoutez d'autres options selon vos besoins -->
+                </select>
+            </div>
+        </div>
+        <div class="form-group row mb-3">
+            <label class="col-sm-3 col-form-label">Préférences :</label>
+            <div class="col-sm-9 col-md-6">
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefPetLover" [(ngModel)]="annonceColoc.prefB.pet_lover" name="petLover">
+                    <label class="form-check-label" for="prefPetLover">Amateur d'animaux de compagnie</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefNonSmoker" [(ngModel)]="annonceColoc.prefB.non_smoker" name="nonSmoker">
+                    <label class="form-check-label" for="prefNonSmoker">Non fumeur</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefAlcoholic" [(ngModel)]="annonceColoc.prefB.alcahoolic" name="alcahoolic">
+                    <label class="form-check-label" for="prefAlcoholic">Alcoolique</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefSmoker" [(ngModel)]="annonceColoc.prefB.smoker" name="smoker">
+                    <label class="form-check-label" for="prefSmoker">Fumeur</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefSport" [(ngModel)]="annonceColoc.prefB.sport" name="sport">
+                    <label class="form-check-label" for="prefSport">Sportif</label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="checkbox" id="prefCars" [(ngModel)]="annonceColoc.prefB.cars" name="cars">
+                    <label class="form-check-label" for="prefCars">Passionné de voitures</label>
+                </div>
+            </div>
+        </div>
+        <!-- Ajoutez ici les autres champs de votre annonce -->
+        <div class="form-group row mb-3">
+            <div class="col-sm-12 d-flex justify-content-center">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-danger ml-2" (click)="deleteAnnonce()">Delete</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+
+
+
+
+
+<footer class="footer-distributed">
+
+    <div class="footer-left">
+
+        <h3><span>Co&Co</span></h3>
+
+        <p class="footer-links">
+            <a href="#" class="link-1">Home</a>
+            
+            <a href="#">Blog</a>
+        
+            <a href="#">Pricing</a>
+        
+            <a href="#">About</a>
+            
+            <a href="#">Faq</a>
+            
+            <a href="#">Contact</a>
+        </p>
+
+        <p class="footer-company-name">Company Name © 2024</p>
+    </div>
+
+    <div class="footer-center">
+
+        <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span>Tunis</span> Ariana soghra</p>
+        </div>
+
+        <div>
+            <i class="fa fa-phone"></i>
+            <p>+216 96816101</p>
+        </div>
+
+        <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href=""></a></p>
+        </div>
+
+    </div>
+
+    <div class="footer-right">
+
+        <p class="footer-company-about">
+            <span>About the company</span>
+            Lorem ipsum dolor sit amet, consectateur adispicing elit. Fusce euismod convallis velit, eu auctor lacus vehicula sit amet.
+        </p>
+
+        <div class="footer-icons">
+
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-twitter-x"></i></a>
+            <a href="#"><i class="bi bi-github"></i></a>
+
+        </div>
+
+    </div>
+
+</footer>
